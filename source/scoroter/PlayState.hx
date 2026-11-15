@@ -11,6 +11,8 @@ class PlayState extends FlxState
 
 	var player:FlxSprite;
 
+	var playerSpeedMultiplier = 0.25;
+
 	var enemies:FlxSpriteContainer;
 
 	var enemyChance = 10;
@@ -62,7 +64,7 @@ class PlayState extends FlxState
 
 	function move(multiplier:Float)
 	{
-		player.y += player.height * multiplier;
+		player.y += (player.height * playerSpeedMultiplier) * multiplier;
 
 		final padding = player.height * 2;
 
