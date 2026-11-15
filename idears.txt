@@ -1,0 +1,13 @@
+story mode
+    - every level is a day
+    - each day introduces some lore via cutscenes or gameplay
+
+endless mode (main gameplay)
+    - as you get farther and farther upgrades pass by you can collect
+    - highscore system
+
+options menu
+    - remappable controls
+
+general gameplay
+    - velocity
