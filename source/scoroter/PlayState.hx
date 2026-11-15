@@ -18,6 +18,7 @@ class PlayState extends FlxState
 	var enemyChance = 10;
 	var maxEnemies = 5;
 	var enemySpeedMultiplier = 0.5;
+	var enemyTickModulo = 5;
 
 	var healthBar:FlxBar;
 
@@ -53,7 +54,7 @@ class PlayState extends FlxState
 		if (FlxG.keys.anyPressed([S, DOWN]))
 			move(1);
 
-		if (FlxG.random.bool(enemyChance) && tick % 10 == 0 && enemies.members.length < maxEnemies)
+		if (FlxG.random.bool(enemyChance) && tick % enemyTickModulo == 0 && enemies.members.length < maxEnemies)
 			enemies.add(new FlxSprite(FlxG.width + 32, player.y).makeGraphic(16, 16, FlxColor.RED));
 
 		for (enemy in enemies)
@@ -79,7 +80,7 @@ class PlayState extends FlxState
 		enemy.x -= enemy.width * enemySpeedMultiplier;
 
 		final touchingPlayer = enemy.overlaps(player);
-		final outOfBounds = enemy.x < -enemy.width;
+		final outOfBounds = enemy.x < -(enemy.width * 2);
 
 		if (!touchingPlayer && !outOfBounds)
 			return;
